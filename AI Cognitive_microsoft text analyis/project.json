@@ -1,0 +1,12 @@
+{
+  "description": "Blank Project",
+  "version": "2016.2.6267.19268",
+  "main": "Main.xaml",
+  "id": "Cognitive",
+  "dependencies": {},
+  "configurationOptions": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ]
+}
