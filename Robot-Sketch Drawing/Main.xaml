@@ -81,7 +81,7 @@
       <Variable x:TypeArguments="sd:Bitmap" Name="newbitmap" />
       <Variable x:TypeArguments="sd:Image" Name="image" />
     </Sequence.Variables>
-    <ui:BuildDataTable DataTable="[DT]" DisplayName="Build data table" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;X&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Y&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:BuildDataTable sap2010:Annotation.AnnotationText="创建DT，用来存储图片中的像素点。" DataTable="[DT]" DisplayName="Build data table" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;X&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Y&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;" />
     <Assign sap2010:WorkflowViewState.IdRef="Assign_31">
       <Assign.To>
         <OutArgument x:TypeArguments="sd1:DataTable">[DT]</OutArgument>
@@ -97,7 +97,7 @@
         <OutArgument x:TypeArguments="sd:Bitmap">[bitmap]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="sd:Bitmap">[New Bitmap(System.Drawing.Image.FromFile("Ratan.jpeg"))]</InArgument>
+        <InArgument x:TypeArguments="sd:Bitmap">[New Bitmap(System.Drawing.Image.FromFile("Steve.PNG"))]</InArgument>
       </Assign.Value>
     </Assign>
     <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
@@ -132,7 +132,7 @@
                 <InArgument x:TypeArguments="sd:Color">[bitmap.GetPixel(k,l)]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[(pixel_coror_2.R &lt;25 And pixel_coror_2.G &lt;25 and pixel_coror_2.B &lt;25)]" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[(pixel_coror_2.R &lt;90 And pixel_coror_2.G &lt;90 and pixel_coror_2.B &lt;90)]" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Then>
                 <Sequence sap2010:WorkflowViewState.IdRef="Sequence_24">
                   <Sequence.Variables>
@@ -237,11 +237,17 @@
         </ActivityAction>
       </ui:OpenApplication.Body>
     </ui:OpenApplication>
-    <sads:DebugSymbol.Symbol>dzlDOlxkb3dubG9hZHNcQ29nbml0aXZlICgxKVxSb2JvdC1Ta2V0Y2ggRHJhd2luZ1xNYWluLnhhbWxORAPxAQ4CAQFJM0k2AgEGSzNLNgIBBUw5TEoCAQRNM002AgEDTjNONgIBAlQFVPkJAgFrVQVcDgIBZ10FXZgCAgFjXgVemAICAV9fBWYOAgFbZwVuDgIBV28Fdg4CAVN3BaQBDQIBLqUBBaUBeQIBLKYBBe8BGgIBB1QiVCgCAWxaNVpEAgFqVzZXOgIBaF2QAV2TAQIBZl2eAV2kAQIBZF6QAV6TAQIBYl6eAV6kAQIBYGQxZGoCAV5hMmE6AgFcbC9sPQIBWmkwaTcCAVh0L3Q+AgFWcTBxOAIBVHgHowESAgEyd0B3TgIBL6UBXKUBdgIBLaYBmgKmAcoCAgErpgG7AaYB3AECASqsAQvsARYCAQh5CZoBEQIBOJsBCaIBEgIBM60BDesBHQIBCXs5ezwCATl+C5kBFgIBPX0cfSkCATqgATOgATgCATadATSdATcCATStASatASwCASizARPoAR4CAQp/DYYBFgIBTIcBDZABEgIBQ5EBDZgBFgIBPrcBFb4BHgIBI78BFcYBHgIBH8cBFecBGgIBC4QBOIQBTgIBT4EBOYEBSAIBTYcBG4cBbQIBRIkBEY4BHAIBRZYBN5YBPAIBQZMBOJMBOwIBP7wBP7wBUAIBJrkBQLkBUQIBJMQBP8QBYQIBIsEBQMEBUQIBIMcBI8cBTwIBDMkBGeUBJAIBD40BE40BpQECAUbLAUnLAUwCARDNARvUASYCARrVARvcASYCARbdARvkASQCARGNAVKNAVgCAUqNAT6NAUcCAUfSAXXSAeEBAgEezwFnzwF6AgEczwE6zwFeAgEb2gF12gHhAQIBGdcBZ9cBiwECARjXATrXAV4CARfiAUXiAUoCARTfAUbfAUkCARI=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dzlDOlxkb3dubG9hZHNcQ29nbml0aXZlICgxKVxSb2JvdC1Ta2V0Y2ggRHJhd2luZ1xNYWluLnhhbWxORAPxAQ4CAQFJM0k2AgEGSzNLNgIBBUw5TEoCAQRNM002AgEDTjNONgIBAlQFVK8KAgFrVQVcDgIBZ10FXZgCAgFjXgVemAICAV9fBWYOAgFbZwVuDgIBV28Fdg4CAVN3BaQBDQIBLqUBBaUBeQIBLKYBBe8BGgIBB1RYVF4CAWxaNVpEAgFqVzZXOgIBaF2QAV2TAQIBZl2eAV2kAQIBZF6QAV6TAQIBYl6eAV6kAQIBYGQxZGkCAV5hMmE6AgFcbC9sPQIBWmkwaTcCAVh0L3Q+AgFWcTBxOAIBVHgHowESAgEyd0B3TgIBL6UBXKUBdgIBLaYBmgKmAcoCAgErpgG7AaYB3AECASqsAQvsARYCAQh5CZoBEQIBOJsBCaIBEgIBM60BDesBHQIBCXs5ezwCATl+C5kBFgIBPX0cfSkCATqgATOgATgCATadATSdATcCATStASatASwCASizARPoAR4CAQp/DYYBFgIBTIcBDZABEgIBQ5EBDZgBFgIBPrcBFb4BHgIBI78BFcYBHgIBH8cBFecBGgIBC4QBOIQBTgIBT4EBOYEBSAIBTYcBG4cBbQIBRIkBEY4BHAIBRZYBN5YBPAIBQZMBOJMBOwIBP7wBP7wBUAIBJrkBQLkBUQIBJMQBP8QBYQIBIsEBQMEBUQIBIMcBI8cBTwIBDMkBGeUBJAIBD40BE40BpQECAUbLAUnLAUwCARDNARvUASYCARrVARvcASYCARbdARvkASQCARGNAVKNAVgCAUqNAT6NAUcCAUfSAXXSAeEBAgEezwFnzwF6AgEczwE6zwFeAgEb2gF12gHhAQIBGdcBZ9cBiwECARjXATrXAV4CARfiAUXiAUoCARTfAUbfAUkCARI=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="BuildDataTable_1" sap:VirtualizedContainerService.HintSize="560,59.2" />
+      <sap2010:ViewStateData Id="BuildDataTable_1" sap:VirtualizedContainerService.HintSize="560,87.2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="Assign_31" sap:VirtualizedContainerService.HintSize="560,60.8" />
       <sap2010:ViewStateData Id="AddDataColumn`1_3" sap:VirtualizedContainerService.HintSize="560,22.4" />
       <sap2010:ViewStateData Id="AddDataColumn`1_4" sap:VirtualizedContainerService.HintSize="560,22.4" />
@@ -257,16 +263,16 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="If_3" sap:VirtualizedContainerService.HintSize="464,296" />
+      <sap2010:ViewStateData Id="If_3" sap:VirtualizedContainerService.HintSize="464,297.6" />
       <sap2010:ViewStateData Id="Assign_32" sap:VirtualizedContainerService.HintSize="464,60.8" />
-      <sap2010:ViewStateData Id="Sequence_20" sap:VirtualizedContainerService.HintSize="486.4,622.4">
+      <sap2010:ViewStateData Id="Sequence_20" sap:VirtualizedContainerService.HintSize="486.4,624">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="While_6" sap:VirtualizedContainerService.HintSize="512,782.4">
+      <sap2010:ViewStateData Id="While_6" sap:VirtualizedContainerService.HintSize="512,784">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -275,14 +281,14 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="Assign_33" sap:VirtualizedContainerService.HintSize="512,60.8" />
-      <sap2010:ViewStateData Id="Sequence_19" sap:VirtualizedContainerService.HintSize="534.4,1008">
+      <sap2010:ViewStateData Id="Sequence_19" sap:VirtualizedContainerService.HintSize="534.4,1009.6">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="While_5" sap:VirtualizedContainerService.HintSize="560,1168">
+      <sap2010:ViewStateData Id="While_5" sap:VirtualizedContainerService.HintSize="560,1169.6">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -347,14 +353,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="582.4,3323.2">
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="582.4,3352">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="622.4,3403.2" />
+      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="622.4,3432" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
